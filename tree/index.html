@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent A - Tools Settings (Tree View)</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="azure-portal">
+        <!-- Top Navigation Bar -->
+        <header class="top-nav">
+            <div class="nav-left">
+                <button class="menu-btn">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                        <rect y="2" width="16" height="2"></rect>
+                        <rect y="7" width="16" height="2"></rect>
+                        <rect y="12" width="16" height="2"></rect>
+                    </svg>
+                </button>
+                <span class="brand">Microsoft Azure</span>
+            </div>
+            <div class="search-bar">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                </svg>
+                <input type="text" placeholder="Search resources, services, and docs (G+/)">
+                <button class="copilot-btn">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                        <circle cx="8" cy="8" r="6" fill="#9B4DFF"/>
+                    </svg>
+                    Copilot
+                </button>
+            </div>
+            <div class="nav-right">
+                <button class="icon-btn"><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><rect x="2" y="2" width="7" height="7"/><rect x="11" y="2" width="7" height="7"/><rect x="2" y="11" width="7" height="7"/><rect x="11" y="11" width="7" height="7"/></svg></button>
+                <button class="icon-btn"><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M10 2a6.5 6.5 0 0 0-6.5 6.5c0 1.39.44 2.68 1.19 3.74L10 18l5.31-5.76A6.5 6.5 0 0 0 10 2z"/></svg></button>
+                <div class="user-profile">
+                    <span class="user-name">Connie Wilson</span>
+                    <span class="user-org">CONTOSO</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+            <a href="#">Home</a>
+            <span class="separator">›</span>
+            <a href="../">Tools Settings</a>
+            <span class="separator">›</span>
+            <span>Tree View</span>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="main-container">
+            <!-- Page Header -->
+            <div class="page-header">
+                <div class="agent-info">
+                    <div class="agent-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="#0078d4">
+                            <rect x="2" y="2" width="8" height="8" rx="1"/>
+                            <rect x="14" y="2" width="8" height="8" rx="1"/>
+                            <rect x="2" y="14" width="8" height="8" rx="1"/>
+                            <rect x="14" y="14" width="8" height="8" rx="1"/>
+                        </svg>
+                    </div>
+                    <div class="agent-details">
+                        <h1>Agent A <span class="version-badge">Tree View</span></h1>
+                        <span class="agent-type">Azure SRE Agent</span>
+                    </div>
+                </div>
+                <button class="close-btn">×</button>
+            </div>
+
+            <!-- Tab Navigation -->
+            <nav class="tab-nav">
+                <a href="#" class="tab">Activities</a>
+                <a href="#" class="tab">Incident management</a>
+                <a href="#" class="tab">Resource mapping</a>
+                <a href="#" class="tab active">Settings</a>
+            </nav>
+
+            <!-- Content Area with Sidebar -->
+            <div class="content-area">
+                <!-- Left Sidebar -->
+                <aside class="sidebar">
+                    <nav class="sidebar-nav">
+                        <a href="#" class="nav-item">Nav item</a>
+                        <a href="#" class="nav-item active">Tools</a>
+                        <a href="#" class="nav-item">Knowledge sources</a>
+                        <a href="#" class="nav-item">Nav item</a>
+                    </nav>
+                </aside>
+
+                <!-- Main Panel -->
+                <main class="main-panel">
+                    <div class="tools-section">
+                        <div class="section-header">
+                            <h2>Tools</h2>
+                            <div class="header-actions">
+                                <button class="btn-secondary" id="expand-all">Expand All</button>
+                                <button class="btn-secondary" id="collapse-all">Collapse All</button>
+                            </div>
+                        </div>
+                        <p class="description">Select the tools available for this agent. <a href="#">Learn more about tools</a></p>
+
+                        <!-- Tools Controls -->
+                        <div class="tools-controls">
+                            <div class="search-tools">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                </svg>
+                                <input type="text" placeholder="Filter tools..." id="search-input">
+                            </div>
+                            <div class="tools-count">
+                                <span id="total-enabled">77</span>/<span id="total-tools">77</span> tools enabled
+                            </div>
+                        </div>
+
+                        <!-- Tools Tree -->
+                        <div class="tools-tree" id="tools-tree" role="tree" aria-label="Tools selection">
+                            <!-- Tree items will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
