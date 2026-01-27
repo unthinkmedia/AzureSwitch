@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent A - Tools Settings</title>
+    <meta name="description" content="Nested checkbox tree implementation following WAI-ARIA best practices">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<!--
+    NESTED CHECKBOX TREE - BEST PRACTICES IMPLEMENTATION
+    
+    This implementation follows these key best practices:
+    
+    1. ACCESSIBILITY (WAI-ARIA Tree View Pattern)
+       - role="tree" on container
+       - role="treeitem" on each node
+       - role="group" on child containers
+       - aria-expanded for collapsible nodes
+       - aria-checked with "true", "false", "mixed" values
+       - aria-level, aria-setsize, aria-posinset for position
+       - aria-labelledby for proper labeling
+    
+    2. KEYBOARD NAVIGATION
+       - Arrow Down/Up: Move between visible items
+       - Arrow Right: Expand node or move to first child
+       - Arrow Left: Collapse node or move to parent
+       - Home/End: Jump to first/last visible item
+       - Space: Toggle checkbox
+       - Enter: Toggle expand (parent) or checkbox (child)
+       - * (asterisk): Expand all siblings
+       - Type character: Jump to item starting with that letter
+    
+    3. CHECKBOX BEHAVIOR
+       - Tri-state: unchecked, checked, indeterminate
+       - Indeterminate shown when some (not all) children selected
+       - Clicking indeterminate selects ALL children (common convention)
+       - Parent automatically updates based on children state
+       - Children cascade when parent is toggled
+    
+    4. VISUAL DESIGN
+       - Checkbox positioned at START (left) for natural reading flow
+       - Clear visual hierarchy with indentation
+       - Tree lines connecting parent to children
+       - Distinct visual states (border, fill, icon)
+       - 44px minimum touch target
+       - Strong focus indicators
+    
+    5. PERFORMANCE
+       - Event delegation (single listener on container)
+       - Cached DOM queries where appropriate
+       - Debounced search input
+    
+    6. RESPONSIVE & INCLUSIVE
+       - Works on mobile devices
+       - Supports prefers-reduced-motion
+       - Supports high contrast mode
+       - Screen reader announcements for changes
+-->
+<body>
+    <div class="azure-portal">
+        <!-- Top Navigation Bar -->
+        <header class="top-nav">
+            <div class="nav-left">
+                <button class="menu-btn">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                        <rect y="2" width="16" height="2"></rect>
+                        <rect y="7" width="16" height="2"></rect>
+                        <rect y="12" width="16" height="2"></rect>
+                    </svg>
+                </button>
+                <span class="brand">Microsoft Azure</span>
+            </div>
+            <div class="search-bar">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                </svg>
+                <input type="text" placeholder="Search resources, services, and docs (G+/)">
+                <button class="copilot-btn">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                        <circle cx="8" cy="8" r="6" fill="#9B4DFF"/>
+                    </svg>
+                    Copilot
+                </button>
+            </div>
+            <div class="nav-right">
+                <button class="icon-btn"><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><rect x="2" y="2" width="7" height="7"/><rect x="11" y="2" width="7" height="7"/><rect x="2" y="11" width="7" height="7"/><rect x="11" y="11" width="7" height="7"/></svg></button>
+                <button class="icon-btn"><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M10 2a6.5 6.5 0 0 0-6.5 6.5c0 1.39.44 2.68 1.19 3.74L10 18l5.31-5.76A6.5 6.5 0 0 0 10 2z"/></svg></button>
+                <button class="icon-btn"><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><circle cx="10" cy="10" r="2"/><path d="M10 0a10 10 0 1 0 10 10A10 10 0 0 0 10 0zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/></svg></button>
+                <button class="icon-btn"><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><circle cx="10" cy="4" r="2"/><circle cx="10" cy="10" r="2"/><circle cx="10" cy="16" r="2"/></svg></button>
+                <button class="icon-btn"><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M10 12a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg></button>
+                <div class="user-profile">
+                    <span class="user-name">Connie Wilson</span>
+                    <span class="user-org">CONTOSO</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+            <a href="#">Home</a>
+            <span class="separator">›</span>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="main-container">
+            <!-- Page Header -->
+            <div class="page-header">
+                <div class="agent-info">
+                    <div class="agent-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="#0078d4">
+                            <rect x="2" y="2" width="8" height="8" rx="1"/>
+                            <rect x="14" y="2" width="8" height="8" rx="1"/>
+                            <rect x="2" y="14" width="8" height="8" rx="1"/>
+                            <rect x="14" y="14" width="8" height="8" rx="1"/>
+                        </svg>
+                    </div>
+                    <div class="agent-details">
+                        <h1>Agent A <span class="more-options">···</span></h1>
+                        <span class="agent-type">Azure SRE Agent</span>
+                    </div>
+                </div>
+                <button class="close-btn">×</button>
+            </div>
+
+            <!-- Tab Navigation -->
+            <nav class="tab-nav">
+                <a href="#" class="tab">Activities</a>
+                <a href="#" class="tab">Incident management</a>
+                <a href="#" class="tab">Resource mapping</a>
+                <a href="#" class="tab active">Settings</a>
+                <span class="tab-divider">|</span>
+                <a href="#" class="tab external">
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+                        <path d="M9 9H1V1h4V0H0v10h10V5H9v4zM6 0v1h3.3L4.6 5.7l.7.7L10 1.7V5h1V0H6z"/>
+                    </svg>
+                    Logs
+                </a>
+                <a href="#" class="feedback-link">
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+                        <path d="M6 0C2.7 0 0 2.7 0 6s2.7 6 6 6 6-2.7 6-6-2.7-6-6-6zm1 9H5V7h2v2zm0-3H5V3h2v3z"/>
+                    </svg>
+                    Give us feedback
+                </a>
+            </nav>
+
+            <!-- Content Area with Sidebar -->
+            <div class="content-area">
+                <!-- Left Sidebar -->
+                <aside class="sidebar">
+                    <button class="sidebar-toggle">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                            <rect x="2" y="2" width="5" height="5"/>
+                            <rect x="9" y="2" width="5" height="5"/>
+                            <rect x="2" y="9" width="5" height="5"/>
+                            <rect x="9" y="9" width="5" height="5"/>
+                        </svg>
+                    </button>
+                    <nav class="sidebar-nav">
+                        <a href="#" class="nav-item">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                <path d="M14 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z"/>
+                            </svg>
+                            Nav item
+                        </a>
+                        <a href="#" class="nav-item active">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                <path d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM5 13H3V7h2v6zm3 0H6V3h2v10zm3 0H9V5h2v8zm3 0h-2V9h2v4z"/>
+                            </svg>
+                            Tools
+                        </a>
+                        <a href="#" class="nav-item">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                <path d="M8 0a8 8 0 1 0 8 8A8 8 0 0 0 8 0zm0 14a6 6 0 1 1 6-6 6 6 0 0 1-6 6z"/>
+                            </svg>
+                            Knowledge sources
+                        </a>
+                        <a href="#" class="nav-item">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                <path d="M14 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z"/>
+                            </svg>
+                            Nav item
+                        </a>
+                        <a href="#" class="nav-item">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                <path d="M14 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z"/>
+                            </svg>
+                            Nav item
+                        </a>
+                    </nav>
+                </aside>
+
+                <!-- Main Panel -->
+                <main class="main-panel">
+                    <div class="tools-section">
+                        <h2>Tools</h2>
+                        <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla, odio at imperdiet lacinia, urna turpis dictum. <a href="#">Learn more about tools</a></p>
+
+                        <!-- Sub-tabs -->
+                        <div class="sub-tabs">
+                            <button class="sub-tab active">Built-in tools</button>
+                            <button class="sub-tab">Partner tools</button>
+                            <button class="sub-tab">MCP servers</button>
+                        </div>
+
+                        <!-- Search and Scope -->
+                        <div class="tools-controls">
+                            <div class="search-tools">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                </svg>
+                                <input type="text" placeholder="Search built-in tools">
+                            </div>
+                            <div class="scope-selector">
+                                <label>Scope:</label>
+                                <select>
+                                    <option>Agent A</option>
+                                </select>
+                            </div>
+                            <div class="tools-count">
+                                <span id="total-enabled">77</span>/<span id="total-tools">77</span> tools enabled
+                            </div>
+                        </div>
+
+                        <!-- Tools Tree -->
+                        <div class="tools-tree" id="tools-tree">
+                            <!-- Tree items will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
