@@ -160,11 +160,6 @@ class TreeView {
                         <svg viewBox="0 0 12 12"><path d="M4 1l5 5-5 5V1z"/></svg>
                     </button>
                     ${this.renderCheckbox(category.id, 'parent', checkState)}
-                    <div class="tree-icon folder">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M20 6h-8l-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2z"/>
-                        </svg>
-                    </div>
                     <span class="tree-label">${category.name}</span>
                     <span class="tree-badge">${enabledCount}/${totalCount}</span>
                 </div>
@@ -194,7 +189,6 @@ class TreeView {
                         <span class="tree-guide ${parentIsLast ? 'no-line' : ''}"></span>
                         <span class="tree-guide ${isLast ? 'is-last' : ''}"></span>
                     </div>
-                    <span class="toggle-spacer"></span>
                     ${this.renderCheckbox(tool.id, 'child', checkState, categoryId)}
                     <div class="tree-icon tool">
                         <svg viewBox="0 0 24 24">
