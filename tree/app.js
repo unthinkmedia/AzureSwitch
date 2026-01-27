@@ -159,6 +159,7 @@ class TreeView {
                     <button class="tree-toggle" type="button" aria-label="Toggle ${category.name}">
                         <svg viewBox="0 0 12 12"><path d="M4 1l5 5-5 5V1z"/></svg>
                     </button>
+                    ${this.renderCheckbox(category.id, 'parent', checkState)}
                     <div class="tree-icon folder">
                         <svg viewBox="0 0 24 24">
                             <path d="M20 6h-8l-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2z"/>
@@ -166,7 +167,6 @@ class TreeView {
                     </div>
                     <span class="tree-label">${category.name}</span>
                     <span class="tree-badge">${enabledCount}/${totalCount}</span>
-                    ${this.renderCheckbox(category.id, 'parent', checkState)}
                 </div>
                 <div class="tree-children" role="group">
                     ${category.tools.map((tool, idx, arr) => 
@@ -195,13 +195,13 @@ class TreeView {
                         <span class="tree-guide ${isLast ? 'is-last' : ''}"></span>
                     </div>
                     <span class="toggle-spacer"></span>
+                    ${this.renderCheckbox(tool.id, 'child', checkState, categoryId)}
                     <div class="tree-icon tool">
                         <svg viewBox="0 0 24 24">
                             <path fill="currentColor" d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/>
                         </svg>
                     </div>
                     <span class="tree-label">${tool.name}</span>
-                    ${this.renderCheckbox(tool.id, 'child', checkState, categoryId)}
                 </div>
             </div>
         `;

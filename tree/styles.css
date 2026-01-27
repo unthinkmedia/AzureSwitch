@@ -508,7 +508,7 @@ body {
     background: var(--bg-gray);
     padding: 2px 6px;
     border-radius: 10px;
-    margin-right: 8px;
+    margin-left: auto;
 }
 
 /* ============================================
