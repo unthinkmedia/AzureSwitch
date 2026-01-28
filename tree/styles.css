@@ -371,6 +371,18 @@ body {
     min-height: 36px;
 }
 
+/* Child rows with descriptions need more padding */
+.tree-node[data-level="2"] > .tree-row {
+    padding: 8px 12px;
+    align-items: flex-start;
+}
+
+.tree-node[data-level="2"] > .tree-row .tree-guide,
+.tree-node[data-level="2"] > .tree-row .tree-checkbox,
+.tree-node[data-level="2"] > .tree-row .tree-icon {
+    margin-top: 2px;
+}
+
 .tree-row:hover {
     background-color: var(--bg-hover);
 }
@@ -481,7 +493,6 @@ body {
 
 /* Tree Label */
 .tree-label {
-    flex: 1;
     font-size: 14px;
     color: var(--text-primary);
     white-space: nowrap;
@@ -491,6 +502,23 @@ body {
 
 .tree-node[data-level="1"] > .tree-row .tree-label {
     font-weight: 600;
+}
+
+/* Tree Label Group (for tools with descriptions) */
+.tree-label-group {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+    min-width: 0;
+}
+
+.tree-description {
+    font-size: 12px;
+    color: var(--text-secondary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* Tree Badge (count) */

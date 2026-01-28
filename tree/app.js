@@ -8,72 +8,72 @@ const toolsData = [
         id: 'azure-operations',
         name: 'Azure operations',
         tools: [
-            { id: 'azure-1', name: 'Resource provisioning', enabled: true },
-            { id: 'azure-2', name: 'Virtual machine management', enabled: true },
-            { id: 'azure-3', name: 'Network configuration', enabled: true },
-            { id: 'azure-4', name: 'Storage management', enabled: true },
-            { id: 'azure-5', name: 'Identity management', enabled: true }
+            { id: 'azure-1', name: 'Resource provisioning', description: 'Create and configure Azure resources using ARM templates', enabled: true },
+            { id: 'azure-2', name: 'Virtual machine management', description: 'Start, stop, resize, and manage Azure VMs', enabled: true },
+            { id: 'azure-3', name: 'Network configuration', description: 'Configure VNets, subnets, and network security groups', enabled: true },
+            { id: 'azure-4', name: 'Storage management', description: 'Manage blob, file, and queue storage accounts', enabled: true },
+            { id: 'azure-5', name: 'Identity management', description: 'Configure Azure AD users, groups, and service principals', enabled: true }
         ]
     },
     {
         id: 'code-analysis',
         name: 'Code analysis',
         tools: [
-            { id: 'code-1', name: 'Static code analysis', enabled: true },
-            { id: 'code-2', name: 'Dependency scanning', enabled: false },
-            { id: 'code-3', name: 'Code quality metrics', enabled: true }
+            { id: 'code-1', name: 'Static code analysis', description: 'Analyze source code for bugs and code smells', enabled: true },
+            { id: 'code-2', name: 'Dependency scanning', description: 'Scan dependencies for known vulnerabilities', enabled: false },
+            { id: 'code-3', name: 'Code quality metrics', description: 'Calculate cyclomatic complexity and maintainability index', enabled: true }
         ]
     },
     {
         id: 'devops',
         name: 'DevOps',
         tools: [
-            { id: 'devops-1', name: 'Pipeline management', enabled: true },
-            { id: 'devops-2', name: 'Build automation', enabled: true },
-            { id: 'devops-3', name: 'Release management', enabled: true },
-            { id: 'devops-4', name: 'Artifact management', enabled: true },
-            { id: 'devops-5', name: 'Test automation', enabled: true }
+            { id: 'devops-1', name: 'Pipeline management', description: 'Create and manage CI/CD pipelines', enabled: true },
+            { id: 'devops-2', name: 'Build automation', description: 'Configure automated build triggers and tasks', enabled: true },
+            { id: 'devops-3', name: 'Release management', description: 'Manage deployment stages and approvals', enabled: true },
+            { id: 'devops-4', name: 'Artifact management', description: 'Store and version build artifacts and packages', enabled: true },
+            { id: 'devops-5', name: 'Test automation', description: 'Run automated tests as part of the pipeline', enabled: true }
         ]
     },
     {
         id: 'diagnostics',
         name: 'Diagnostics',
         tools: [
-            { id: 'diag-1', name: 'Log analytics', enabled: true },
-            { id: 'diag-2', name: 'Metric collection', enabled: true }
+            { id: 'diag-1', name: 'Log analytics', description: 'Query and analyze logs from Azure resources', enabled: true },
+            { id: 'diag-2', name: 'Metric collection', description: 'Collect and visualize performance metrics', enabled: true }
         ]
     },
     {
         id: 'knowledge-base',
         name: 'Knowledge base',
         tools: [
-            { id: 'kb-1', name: 'Documentation search', enabled: true },
-            { id: 'kb-2', name: 'Best practices', enabled: true },
-            { id: 'kb-3', name: 'Architecture patterns', enabled: true },
-            { id: 'kb-4', name: 'Troubleshooting guides', enabled: true },
-            { id: 'kb-5', name: 'API reference', enabled: true }
+            { id: 'kb-1', name: 'Documentation search', description: 'Search official Azure documentation', enabled: true },
+            { id: 'kb-2', name: 'Best practices', description: 'Access Azure Well-Architected Framework guidance', enabled: true },
+            { id: 'kb-3', name: 'Architecture patterns', description: 'Browse reference architectures and design patterns', enabled: true },
+            { id: 'kb-4', name: 'Troubleshooting guides', description: 'Find solutions for common Azure issues', enabled: true },
+            { id: 'kb-5', name: 'API reference', description: 'Access Azure REST API and SDK documentation', enabled: true }
         ]
     },
     {
         id: 'monitoring',
         name: 'Monitoring',
         tools: [
-            { id: 'mon-1', name: 'Alert management', enabled: true },
-            { id: 'mon-2', name: 'Application insights', enabled: true },
-            { id: 'mon-3', name: 'Health checks', enabled: false },
-            { id: 'mon-4', name: 'Cost analysis', enabled: true },
-            { id: 'mon-5', name: 'Budget alerts', enabled: true }
+            { id: 'mon-1', name: 'Alert management', description: 'Configure and manage Azure Monitor alerts', enabled: true },
+            { id: 'mon-2', name: 'Application insights', description: 'Monitor application performance and usage', enabled: true },
+            { id: 'mon-3', name: 'Health checks', description: 'Monitor resource health and availability', enabled: false },
+            { id: 'mon-4', name: 'Cost analysis', description: 'Analyze Azure spending and usage trends', enabled: true },
+            { id: 'mon-5', name: 'Budget alerts', description: 'Set up spending thresholds and notifications', enabled: true }
         ]
     },
     {
         id: 'security',
         name: 'Security',
         tools: [
-            { id: 'sec-1', name: 'Security center', enabled: true },
-            { id: 'sec-2', name: 'Compliance check', enabled: true },
-            { id: 'sec-3', name: 'Vulnerability scanning', enabled: true },
-            { id: 'sec-4', name: 'Access reviews', enabled: true },
-            { id: 'sec-5', name: 'Threat detection', enabled: true }
+            { id: 'sec-1', name: 'Security center', description: 'View security recommendations and secure score', enabled: true },
+            { id: 'sec-2', name: 'Compliance check', description: 'Assess compliance with regulatory standards', enabled: true },
+            { id: 'sec-3', name: 'Vulnerability scanning', description: 'Scan resources for security vulnerabilities', enabled: true },
+            { id: 'sec-4', name: 'Access reviews', description: 'Review and audit user access permissions', enabled: true },
+            { id: 'sec-5', name: 'Threat detection', description: 'Detect and respond to security threats', enabled: true }
         ]
     }
 ];
@@ -157,7 +157,10 @@ class TreeView {
                             <path fill="currentColor" d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/>
                         </svg>
                     </div>
-                    <span class="tree-label">${tool.name}</span>
+                    <div class="tree-label-group">
+                        <span class="tree-label">${tool.name}</span>
+                        <span class="tree-description">${tool.description}</span>
+                    </div>
                 </div>
             </div>
         `;
