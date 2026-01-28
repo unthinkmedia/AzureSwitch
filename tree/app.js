@@ -203,7 +203,7 @@ class TreeView {
 
     renderCheckbox(id, type, state, categoryId = '') {
         return `
-            <label class="tree-checkbox" data-state="${state}">
+            <div class="tree-checkbox" data-state="${state}">
                 <input type="checkbox" 
                        data-id="${id}"
                        data-type="${type}"
@@ -211,13 +211,13 @@ class TreeView {
                        ${state === 'checked' ? 'checked' : ''}>
                 <span class="checkbox-visual">
                     <svg class="checkmark" viewBox="0 0 16 16">
-                        <path d="M3.5 8L6.5 11L12.5 5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M3.5 8L6.5 11L12.5 5"/>
                     </svg>
                     <svg class="indeterminate" viewBox="0 0 16 16">
-                        <path d="M4 8H12" stroke-linecap="round"/>
+                        <path d="M4 8H12"/>
                     </svg>
                 </span>
-            </label>
+            </div>
         `;
     }
 
@@ -267,6 +267,7 @@ class TreeView {
         const checkbox = e.target.closest('.tree-checkbox');
         if (checkbox) {
             e.preventDefault();
+            e.stopPropagation();
             const node = checkbox.closest('.tree-node');
             this.toggleCheck(node);
             this.setFocus(node);
