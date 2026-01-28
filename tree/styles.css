@@ -19,7 +19,7 @@
     --sidebar-bg: #f3f2f1;
     --tree-line-color: #c8c6c4;
     --focus-ring: #0078d4;
-    --checkbox-size: 16px;
+    --checkbox-size: 18px;
     --success-green: #107c10;
     --warning-orange: #ffaa44;
 }
@@ -541,8 +541,8 @@ body {
 }
 
 .checkbox-visual svg {
-    width: 10px;
-    height: 10px;
+    width: 12px;
+    height: 12px;
     fill: none;
     stroke: white;
     stroke-width: 2.5;
