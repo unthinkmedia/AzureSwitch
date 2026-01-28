@@ -12,24 +12,7 @@ const toolsData = [
             { id: 'azure-2', name: 'Virtual machine management', enabled: true },
             { id: 'azure-3', name: 'Network configuration', enabled: true },
             { id: 'azure-4', name: 'Storage management', enabled: true },
-            { id: 'azure-5', name: 'Identity management', enabled: true },
-            { id: 'azure-6', name: 'Key vault operations', enabled: true },
-            { id: 'azure-7', name: 'App service deployment', enabled: true },
-            { id: 'azure-8', name: 'Function app management', enabled: true },
-            { id: 'azure-9', name: 'Container registry', enabled: true },
-            { id: 'azure-10', name: 'Kubernetes service', enabled: true },
-            { id: 'azure-11', name: 'SQL database operations', enabled: true },
-            { id: 'azure-12', name: 'Cosmos DB operations', enabled: true },
-            { id: 'azure-13', name: 'Redis cache management', enabled: true },
-            { id: 'azure-14', name: 'Service bus messaging', enabled: true },
-            { id: 'azure-15', name: 'Event hub streaming', enabled: true },
-            { id: 'azure-16', name: 'Logic app workflows', enabled: true },
-            { id: 'azure-17', name: 'API management', enabled: true },
-            { id: 'azure-18', name: 'CDN configuration', enabled: true },
-            { id: 'azure-19', name: 'Traffic manager', enabled: true },
-            { id: 'azure-20', name: 'Load balancer config', enabled: true },
-            { id: 'azure-21', name: 'Firewall management', enabled: true },
-            { id: 'azure-22', name: 'DDoS protection', enabled: true }
+            { id: 'azure-5', name: 'Identity management', enabled: true }
         ]
     },
     {
@@ -49,21 +32,7 @@ const toolsData = [
             { id: 'devops-2', name: 'Build automation', enabled: true },
             { id: 'devops-3', name: 'Release management', enabled: true },
             { id: 'devops-4', name: 'Artifact management', enabled: true },
-            { id: 'devops-5', name: 'Test automation', enabled: true },
-            { id: 'devops-6', name: 'Environment provisioning', enabled: true },
-            { id: 'devops-7', name: 'Configuration management', enabled: true },
-            { id: 'devops-8', name: 'Secret rotation', enabled: true },
-            { id: 'devops-9', name: 'Deployment slots', enabled: true },
-            { id: 'devops-10', name: 'Rollback operations', enabled: true },
-            { id: 'devops-11', name: 'Blue-green deployment', enabled: true },
-            { id: 'devops-12', name: 'Canary releases', enabled: true },
-            { id: 'devops-13', name: 'Feature flags', enabled: true },
-            { id: 'devops-14', name: 'Git operations', enabled: true },
-            { id: 'devops-15', name: 'Pull request automation', enabled: true },
-            { id: 'devops-16', name: 'Branch policies', enabled: true },
-            { id: 'devops-17', name: 'Work item tracking', enabled: true },
-            { id: 'devops-18', name: 'Sprint management', enabled: true },
-            { id: 'devops-19', name: 'Dashboard creation', enabled: true }
+            { id: 'devops-5', name: 'Test automation', enabled: true }
         ]
     },
     {
@@ -82,8 +51,7 @@ const toolsData = [
             { id: 'kb-2', name: 'Best practices', enabled: true },
             { id: 'kb-3', name: 'Architecture patterns', enabled: true },
             { id: 'kb-4', name: 'Troubleshooting guides', enabled: true },
-            { id: 'kb-5', name: 'API reference', enabled: true },
-            { id: 'kb-6', name: 'Sample code', enabled: true }
+            { id: 'kb-5', name: 'API reference', enabled: true }
         ]
     },
     {
@@ -94,10 +62,7 @@ const toolsData = [
             { id: 'mon-2', name: 'Application insights', enabled: true },
             { id: 'mon-3', name: 'Health checks', enabled: false },
             { id: 'mon-4', name: 'Cost analysis', enabled: true },
-            { id: 'mon-5', name: 'Budget alerts', enabled: true },
-            { id: 'mon-6', name: 'Resource utilization', enabled: true },
-            { id: 'mon-7', name: 'SLA monitoring', enabled: true },
-            { id: 'mon-8', name: 'Availability tests', enabled: false }
+            { id: 'mon-5', name: 'Budget alerts', enabled: true }
         ]
     },
     {
