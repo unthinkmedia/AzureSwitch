@@ -185,10 +185,7 @@ class TreeView {
                  data-is-last="${isLast}"
                  tabindex="-1">
                 <div class="tree-row">
-                    <div class="tree-indent">
-                        <span class="tree-guide ${parentIsLast ? 'no-line' : ''}"></span>
-                        <span class="tree-guide ${isLast ? 'is-last' : ''}"></span>
-                    </div>
+                    <span class="tree-guide ${isLast ? 'is-last' : ''}"></span>
                     ${this.renderCheckbox(tool.id, 'child', checkState, categoryId)}
                     <div class="tree-icon tool">
                         <svg viewBox="0 0 24 24">

@@ -385,17 +385,12 @@ body {
 }
 
 /* Tree Indentation */
-.tree-indent {
-    display: inline-flex;
-    align-items: center;
-    height: 28px;
-}
-
 .tree-guide {
-    width: 20px;
+    width: 24px;
     height: 100%;
     position: relative;
     flex-shrink: 0;
+    margin-left: 8px;
 }
 
 /* Tree connector lines */
@@ -403,14 +398,10 @@ body {
     content: '';
     position: absolute;
     left: 10px;
-    top: 0;
-    bottom: 0;
+    top: -10px;
+    bottom: 50%;
     width: 1px;
     background-color: var(--tree-line-color);
-}
-
-.tree-guide.is-last::before {
-    height: 50%;
 }
 
 .tree-guide::after {
@@ -421,11 +412,11 @@ body {
     width: 10px;
     height: 1px;
     background-color: var(--tree-line-color);
+    transform: translateY(-50%);
 }
 
-.tree-guide.no-line::before,
-.tree-guide.no-line::after {
-    display: none;
+.tree-guide.is-last::before {
+    bottom: 50%;
 }
 
 /* Expand/Collapse Toggle */
