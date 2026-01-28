@@ -172,11 +172,11 @@ class TreeView {
                        data-category="${categoryId || id}"
                        ${state === 'checked' ? 'checked' : ''}>
                 <span class="checkbox-visual">
-                    <svg class="checkmark" viewBox="0 0 16 16">
-                        <path d="M3.5 8L6.5 11L12.5 5"/>
+                    <svg class="checkmark" viewBox="0 0 12 12">
+                        <path d="M2 6l3 3 5-5"/>
                     </svg>
-                    <svg class="indeterminate" viewBox="0 0 16 16">
-                        <path d="M4 8H12"/>
+                    <svg class="indeterminate" viewBox="0 0 12 12">
+                        <path d="M2.5 6h7"/>
                     </svg>
                 </span>
             </div>
@@ -340,8 +340,9 @@ class TreeView {
             checkboxContainer.dataset.state = newState ? 'checked' : 'unchecked';
             node.setAttribute('aria-checked', newState);
         } else {
-            // Child toggle
-            const newState = !checkbox.checked;
+            // Child toggle - use data-state since checkbox.checked may already be toggled by browser
+            const currentState = checkboxContainer.dataset.state;
+            const newState = currentState !== 'checked';
             checkbox.checked = newState;
             checkboxContainer.dataset.state = newState ? 'checked' : 'unchecked';
             node.setAttribute('aria-checked', newState);

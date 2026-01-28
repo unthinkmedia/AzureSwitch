@@ -391,6 +391,7 @@ body {
     position: relative;
     flex-shrink: 0;
     margin-left: 8px;
+    pointer-events: none;
 }
 
 /* Tree connector lines */
@@ -515,6 +516,7 @@ body {
     height: var(--checkbox-size);
     flex-shrink: 0;
     cursor: pointer;
+    z-index: 1;
 }
 
 .tree-checkbox input {
@@ -524,7 +526,9 @@ body {
     height: 100%;
     cursor: pointer;
     margin: 0;
-    z-index: 1;
+    z-index: 2;
+    top: 0;
+    left: 0;
 }
 
 .checkbox-visual {
@@ -538,14 +542,16 @@ body {
     justify-content: center;
     transition: all 0.1s;
     pointer-events: none;
+    position: relative;
 }
 
 .checkbox-visual svg {
-    width: 12px;
-    height: 12px;
+    position: absolute;
+    width: 14px;
+    height: 14px;
     fill: none;
     stroke: white;
-    stroke-width: 2.5;
+    stroke-width: 2;
     stroke-linecap: round;
     stroke-linejoin: round;
     opacity: 0;
